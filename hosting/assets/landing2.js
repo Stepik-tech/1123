@@ -53,16 +53,7 @@
     });
   });
 
-  // живые метрики в превью панели hero
-  function tick(id, base, amp) {
-    var v = Math.max(5, Math.min(95, base + Math.round((Math.random() - 0.5) * amp)));
-    var t = document.getElementById(id), bar = document.getElementById(id + 'Bar');
-    if (t) t.textContent = v + '%';
-    if (bar) bar.style.width = v + '%';
-  }
-  setInterval(function () { tick('hpCpu', 34, 24); tick('hpRam', 61, 14); }, 2600);
-
-  // плавный якорный скролл с учётом sticky-шапки
+    // плавный якорный скролл с учётом sticky-шапки
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var sel = a.getAttribute('href');

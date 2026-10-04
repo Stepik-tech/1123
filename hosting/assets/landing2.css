@@ -53,40 +53,24 @@ section{padding:80px 0}
 /* HERO — большой баннер как ms.com/surface: светлый фон, слева текст, справа продукт-визуал */
 .hero{background:linear-gradient(180deg,#eef4fa 0%,#f8fafd 60%,#fff 100%);padding:0;overflow:hidden}
 .hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:72px 24px 56px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;
-  padding:5px 14px;font-size:.8rem;font-weight:600;color:var(--brand);margin-bottom:22px}
-.hero-badge i{width:7px;height:7px;border-radius:50%;background:#107c10;display:inline-block}
 .hero h1{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.12;font-weight:600;margin-bottom:18px}
 .hero .lead{color:var(--ink2);font-size:1.12rem;max-width:33rem;margin-bottom:28px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
-.hero-trust{display:flex;gap:0;border-top:1px solid var(--line);padding-top:20px}
-.hero-trust div{padding-right:34px;margin-right:34px;border-right:1px solid var(--line)}
-.hero-trust div:last-child{border-right:0}
-.hero-trust b{display:block;font-size:1.5rem;font-weight:600;color:var(--ink)}
-.hero-trust span{font-size:.82rem;color:var(--muted)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 
-/* окно-превью панели в hero */
-.win{background:#fff;border:1px solid var(--line);box-shadow:0 8px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);border-radius:4px;overflow:hidden}
-.win-bar{display:flex;align-items:center;gap:7px;background:var(--gray2);border-bottom:1px solid var(--line);padding:9px 14px;font-size:.78rem;color:var(--muted)}
-.win-bar i{width:11px;height:11px;border-radius:50%;background:#d2d0ce}
-.win-bar i:first-child{background:#ff6f61}.win-bar i:nth-child(2){background:#ffd166}.win-bar i:nth-child(3){background:#78cb82}
-.win-bar span{margin-left:8px}
-.win-body{padding:18px}
-.wrow{display:grid;grid-template-columns:130px 52px 1fr;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #f3f2f1;font-size:.85rem}
-.wrow span{color:var(--muted)}
-.wrow b{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
-.wbar{height:6px;background:#efefec;border-radius:3px;overflow:hidden}
-.wbar i{display:block;height:100%;background:var(--brand);border-radius:3px;transition:width .8s ease}
-.wterm{margin-top:14px;background:#0c0c0c;color:#ccc;font-family:Consolas,"Courier New",monospace;font-size:.8rem;line-height:1.7;padding:12px 14px;border-radius:3px;min-height:96px}
-.wterm .ok{color:#78cb82}
-.cursor{display:inline-block;width:8px;height:14px;background:#ccc;vertical-align:middle;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.float-card{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,.1);padding:10px 14px;border-radius:3px;font-size:.8rem}
-.float-card b{display:block;font-weight:600}
-.float-card small{color:var(--muted)}
+/* продукт-панель в hero (без окон и консолей) */
 .hero-art{position:relative}
-.f1{bottom:-14px;left:-26px}
-.f2{top:-16px;right:-10px}
+.hero-panel{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);overflow:hidden}
+.hp-head{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line);background:#f8fafd}
+.hp-head b{font-size:.95rem;font-weight:600;color:var(--ink)}
+.hp-head .brand-mark svg{width:22px;height:22px;display:block}
+.hp-grid{display:grid;grid-template-columns:1fr 1fr}
+.hp-cell{padding:22px 20px;border-right:1px solid #f0f2f5;border-bottom:1px solid #f0f2f5}
+.hp-cell:nth-child(2n){border-right:0}
+.hp-cell:nth-child(n+3){border-bottom:0}
+.hp-cell svg{width:26px;height:26px;color:var(--brand);margin-bottom:12px}
+.hp-cell b{display:block;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.hp-cell span{font-size:.82rem;color:var(--muted);line-height:1.45;display:block}
+@media (max-width:640px){.hp-grid{grid-template-columns:1fr}.hp-cell{border-right:0}.hp-cell:nth-child(3){border-bottom:1px solid #f0f2f5}}
 
 /* полоса доверия */
 .logos{border-top:1px solid var(--line);background:#fff}
@@ -213,8 +197,6 @@ footer.site-footer{background:#0c0c0c;color:#a8a6a4;font-size:.85rem}
   .ld-links a{height:48px;border-bottom:1px solid #f3f2f1}
   .burger{display:flex}
   .cards-grid,.quotes,.rgrid,.plans{grid-template-columns:1fr}
-  .hero-trust{flex-direction:column;gap:14px}
-  .hero-trust div{border-right:0;padding-right:0;margin-right:0;border-bottom:1px solid var(--line);padding-bottom:12px}
   .ft-top{grid-template-columns:1fr 1fr}
   .f1,.f2{display:none}
 }

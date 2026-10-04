@@ -1,5 +1,5 @@
-# Dependency directories
-node_modules/
+# Logs
+*.log
 
-# Build artifacts / vendor copies (generated from node_modules)
-vendor/
+# Databases
+*.sqlite

@@ -38,32 +38,23 @@
 <section class="hero">
   <div class="wrap hero-in">
     <div class="hero-txt">
-      <span class="hero-badge"><i></i> Все регионы работают штатно · SLA 99.95%</span>
       <h1>Облачные серверы<br>для серьёзных задач</h1>
-      <p class="lead">Инфраструктура VDSmart используется командами разработки, хостинг-провайдерами и бизнесом по всей стране. Запустите сервер с NVMe-диском за 60 секунд из панели управления — без звонков менеджера и ручной модерации.</p>
+      <p class="lead">VDSmart — платформа VDS/VPS для команд разработки, хостинг-провайдеров и бизнеса. NVMe-диски, защита от DDoS и панель управления, в которой сервер готов меньше чем за минуту.</p>
       <div class="hero-btns">
-        <a class="btn lg" href="<?= $u ? '/user/server_new.php' : '/register.php' ?>">Создать сервер</a>
+        <a class="btn lg" href="<?= $u ? '/user/server_new.php' : '/register.php' ?>">Создать аккаунт</a>
         <a class="btn outline lg" href="#pricing">Все тарифы</a>
-      </div>
-      <div class="hero-trust">
-        <div><b>99.95%</b><span>SLA по итогам года</span></div>
-        <div><b>60 сек</b><span>среднее время запуска</span></div>
-        <div><b>24/7</b><span>поддержка в чате и тикетах</span></div>
       </div>
     </div>
     <div class="hero-art">
-      <div class="win">
-        <div class="win-bar"><i></i><i></i><i></i><span>panel.vdsmart.ru — web-prod-01</span></div>
-        <div class="win-body">
-          <div class="wrow"><span>CPU · 4 vCPU</span><b id="hpCpu">34%</b><div class="wbar"><i id="hpCpuBar" style="width:34%"></i></div></div>
-          <div class="wrow"><span>Память · 8 ГБ</span><b id="hpRam">61%</b><div class="wbar"><i id="hpRamBar" style="width:61%"></i></div></div>
-          <div class="wrow"><span>NVMe · 100 ГБ</span><b>42%</b><div class="wbar"><i style="width:42%"></i></div></div>
-          <div class="wrow"><span>Канал наружу</span><b>86 Мбит/с</b><div class="wbar"><i style="width:27%"></i></div></div>
-          <div class="wterm">$ ssh root@185.211.84.12<br><span class="ok">Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8 x86_64)</span><br>root@web-prod-01:~# <i class="cursor"></i></div>
+      <div class="hero-panel">
+        <div class="hp-head"><span class="brand-mark"><?= logo_mark_svg() ?></span><b>VDSmart Cloud Platform</b></div>
+        <div class="hp-grid">
+          <div class="hp-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/><circle cx="7" cy="7.5" r="1" fill="currentColor"/><circle cx="7" cy="16.5" r="1" fill="currentColor"/></svg><b>Запуск за 60 секунд</b><span>Автоматическая установка образа и выдача IP без модерации</span></div>
+          <div class="hp-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><b>Защита от DDoS</b><span>Фильтрация L3/L4 до 1 Тбит/с включена во все тарифы</span></div>
+          <div class="hp-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><b>9 дата-центров</b><span>Россия, Казахстан, Германия, Нидерланды, Турция</span></div>
+          <div class="hp-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M7 15h4"/></svg><b>Почасовая оплата</b><span>Баланс, детализация до минуты, чеки для бухгалтерии</span></div>
         </div>
       </div>
-      <div class="float-card f1"><b>Резервная копия завершена</b><small>web-prod-01 · 03:00 MSK</small></div>
-      <div class="float-card f2"><b>Сервер создан</b><small>run-prod-02 · eu-fra-1 · 41 с</small></div>
     </div>
   </div>
   <div class="logos">
@@ -93,19 +84,20 @@
         'bill'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M7 15h4"/></svg>',
       ];
       $feats = [
-        ['server','VDS на NVMe','Виртуальные серверы на процессорах AMD EPYC и дисках NVMe последнего поколения. Локальная производительность до 350 000 IOPS.','Подробнее о серверах'],
-        ['shield','Защита от DDoS','Фильтрация атак до 1 Тбит/с на уровне сети: L3/L4 бесплатно во всех тарифах, L7 — модуль Web-защиты.','Как мы защищаем'],
-        ['backup','Автоматические бэкапы','Ежедневные снимки дисков с хранением 7 дней в другом дата-центре. Восстановление — одной кнопкой.','Настроить бэкапы'],
-        ['console','Веб-консоль','Доступ к серверу из браузера, если SSH не отвечает. Работает даже при выключенной сети и неверном пароле.','Открыть консоль'],
-        ['net','Частная сеть VPC','Изолированный L2-канал между вашими серверами с пропусканием до 10 Гбит/с. Бесплатно.','Подключить VPC'],
-        ['bill','Прозрачный биллинг','Почасовой учёт, детализация до минуты, чеки для бухгалтерии и API для автоматизации закупок.','Смотреть тарифы'],
+        ['server','VDS на NVMe','Виртуальные серверы на процессорах AMD EPYC и дисках NVMe последнего поколения. Локальная производительность до 350 000 IOPS. Запуск — 60 секунд, апгрейд ресурсов — без потери данных и IP-адреса.','#pricing'],
+        ['shield','Защита от DDoS','Фильтрация атак до 1 Тбит/с на уровне сети: L3/L4 бесплатно во всех тарифах. Для L7-атак (HTTP-flood, боты) подключается модуль Web-защиты с настройкой правил прямо в панели.','#security'],
+        ['backup','Автоматические бэкапы','Ежедневные снимки дисков с хранением 14 дней в резервном дата-центре. Расписание, ручные копии и восстановление диска — в пару кликов на странице сервера. Хранение копий бесплатно.','#pricing'],
+        ['net','Частная сеть VPC','Изолированный L2-канал между вашими серверами с пропусканием до 10 Гбит/с. Трафик внутри VPC не учитывается в лимиты и не выходит в публичную сеть. Подключение — галочкой при создании сервера.','#regions'],
+        ['bill','Прозрачный биллинг','Почасовой учёт с детализацией до минуты, история операций и чеки для бухгалтерии. Пополнение картой, СБП или по счёту для юридических лиц. Неиспользованный остаток возвращается на баланс при удалении сервера.','#pricing'],
+        ['support2','Поддержка 24/7','Инженеры отвечают в среднем за 15 минут — ночью, в выходные и праздники. Тикеты, приватный чат, статус сервисов и база знаний с пошаговыми инструкциями по каждой теме.','#support'],
       ];
-      foreach ($feats as $i => [$k,$t,$d,$l]): ?>
-      <a class="card reveal" href="#pricing">
+      $ic['support2'] = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 13a8 8 0 0116 0"/><rect x="3" y="13" width="4" height="7" rx="2"/><rect x="17" y="13" width="4" height="7" rx="2"/><path d="M21 19v1a3 3 0 01-3 3h-4"/></svg>';
+      foreach ($feats as $i => [$k,$t,$d,$href]): ?>
+      <a class="card reveal" href="<?= $href ?>">
         <span class="card-ic"><?= $ic[$k] ?></span>
         <h3><?= $t ?></h3>
         <p><?= $d ?></p>
-        <span class="textlink"><?= $l ?></span>
+        <span class="textlink">Подробнее</span>
       </a>
       <?php endforeach; ?>
     </div>
@@ -180,8 +172,8 @@
         <ul>
           <li>Защита от DDoS L3/L4 включена</li>
           <li>Скорость канала: <?= $p['net'] ?></li>
-          <li>Ежедневные бэкапы, хранение 7 дней</li>
-          <li>Веб-консоль и управление снапшотами</li>
+          <li>Ежедневные бэкапы, хранение 14 дней</li>
+          <li>Управление снапшотами и восстановление из панели</li>
           <li><?= $name === 'Start' ? '1 IPv4-адрес' : ($name === 'Enterprise' ? 'Выделенный IP + VPC без лимитов' : 'IPv4 + частная сеть VPC') ?></li>
         </ul>
         <a class="btn <?= $name === 'Pro' ? '' : 'outline' ?>" href="<?= $u ? '/user/server_new.php?plan='.urlencode($name) : '/register.php' ?>">Выбрать <?= $name ?></a>
@@ -293,16 +285,17 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="ft-top">
-      <div class="ft-col"><h4>Компания</h4><a href="#">О нас</a><a href="#">Новости</a><a href="#">Вакансии</a><a href="#">Партнёрам</a><a href="#">Реселлерам</a></div>
+      <div class="ft-col"><h4>Компания</h4><a href="#products">О VDSmart</a><a href="#regions">Дата-центры</a><a href="#support">Клиенты</a><a href="/register.php">Партнёрам</a><a href="/register.php">Реселлерам</a></div>
       <div class="ft-col"><h4>Продукты</h4><a href="#pricing">VDS/VPS</a><a href="#products">Выделенные серверы</a><a href="#products">Объектное хранилище</a><a href="#products">Частная сеть VPC</a><a href="#security">DDoS-защита</a></div>
-      <div class="ft-col"><h4>Ресурсы</h4><a href="#faq">База знаний</a><a href="#">API и документация</a><a href="#">Статус сервисов</a><a href="#">Сообщество</a><a href="#">Блог</a></div>
-      <div class="ft-col"><h4>Поддержка</h4><a href="/register.php">Связаться с нами</a><a href="#">Тикет-система</a><a href="#">Чат 24/7</a><a href="#">SLA и компенсации</a></div>
-      <div class="ft-col"><h4>Правовая информация</h4><a href="#">Пользовательское соглашение</a><a href="#">Политика конфиденциальности</a><a href="#">Обработка данных (152-ФЗ)</a><a href="#">Реквизиты</a></div>
+      <div class="ft-col"><h4>Ресурсы</h4><a href="#faq">База знаний</a><a href="#faq">API и документация</a><a href="#security">Статус сервисов</a><a href="#support">Блог</a><a href="#pricing">Калькулятор цен</a></div>
+      <div class="ft-col"><h4>Поддержка</h4><a href="/register.php">Связаться с нами</a><a href="/user/tickets.php">Тикет-система</a><a href="#support">Чат 24/7</a><a href="#security">SLA и компенсации</a></div>
+      <div class="ft-col"><h4>Правовая информация</h4><a href="/terms.php">Пользовательское соглашение</a><a href="/privacy.php">Политика конфиденциальности</a><a href="/privacy.php">Обработка данных (152-ФЗ)</a><a href="/terms.php">Реквизиты</a></div>
     </div>
     <div class="ft-bot">
-      <span>© <?= date('Y') ?> ООО «ВДСмарт», ИНН 7700000000</span>
-      <a href="#">Русский (Россия)</a>
-      <span class="lang-pick">🌐 Русский</span>
+      <span>© <?= date('Y') ?> ООО «ВДСмарт», ИНН 7700000000 · ОГРН 1137700000000</span>
+      <a href="mailto:support@vdsmart.ru">support@vdsmart.ru</a>
+      <a href="tel:+74950000000">+7 (495) 000-00-00</a>
+      <span class="lang-pick">Русский (Россия)</span>
     </div>
   </div>
 </footer>
