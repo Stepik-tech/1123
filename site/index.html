@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEBULA — Motion & 3D Studio</title>
+<meta name="description" content="Студия моушн-дизайна и 3D-графики: CGI, рендер, VFX, интерактивные WebGL-сайты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- кастомный курсор -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- прелоадер -->
+<div class="loader" id="loader">
+  <div class="loader__num"><span id="loaderPct">0</span>%</div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+  <div class="loader__label">NEBULA STUDIO</div>
+</div>
+
+<!-- фоновый 3D-холст -->
+<canvas id="webgl"></canvas>
+
+<!-- прогресс скролла -->
+<div class="scroll-progress"><i id="scrollBar"></i></div>
+
+<header class="header" id="header">
+  <a href="#" class="logo">NEBULA<span>*</span></a>
+  <nav class="nav" id="nav">
+    <a href="#works" data-cursor>Работы</a>
+    <a href="#services" data-cursor>Услуги</a>
+    <a href="#pipeline" data-cursor>Пайплайн</a>
+    <a href="#pricing" data-cursor>Цены</a>
+    <a href="#contact" data-cursor>Контакты</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Меню"><i></i><i></i></button>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__content">
+    <p class="hero__tag reveal-line"><span>MOTION · 3D · WEBGL · VFX</span></p>
+    <h1 class="hero__title">
+      <span class="mask"><span class="word">СОЗДАЁМ</span></span>
+      <span class="mask"><span class="word grad">ЦИФРОВЫЕ</span></span>
+      <span class="mask"><span class="word">МИРЫ<span class="dot">.</span></span></span>
+    </h1>
+    <p class="hero__sub reveal-fade">Студия моушн-дизайна и 3D-графики. Рендерим реальность, которой не существует — и делаем её продающей.</p>
+    <div class="hero__cta reveal-fade">
+      <a href="#works" class="btn btn--magnetic" data-cursor>Смотреть шоурил <em>↓</em></a>
+      <a href="#contact" class="btn btn--ghost" data-cursor>Обсудить проект</a>
+    </div>
+  </div>
+  <div class="hero__marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>BLENDER ✦ CINEMA 4D ✦ HOUDINI ✦ UNREAL ENGINE ✦ AFTER EFFECTS ✦ DAVINCI RESOLVE ✦ THREE.JS ✦ OSL ✦ REDSHIFT ✦ </span>
+      <span>BLENDER ✦ CINEMA 4D ✦ HOUDINI ✦ UNREAL ENGINE ✦ AFTER EFFECTS ✦ DAVINCI RESOLVE ✦ THREE.JS ✦ OSL ✦ REDSHIFT ✦ </span>
+    </div>
+  </div>
+  <div class="hero__stats">
+    <div class="stat"><b data-count="128">0</b><i>+ проектов</i></div>
+    <div class="stat"><b data-count="47">0</b><i>млн просмотров</i></div>
+    <div class="stat"><b data-count="9">0</b><i>лет в индустрии</i></div>
+    <div class="stat"><b data-count="14">0</b><i>наград</i></div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="section" id="works">
+  <div class="section__head">
+    <span class="kicker">01 / ПОРТФОЛИО</span>
+    <h2 class="section__title split">Избранные работы</h2>
+  </div>
+  <div class="works">
+    <article class="work" data-cursor>
+      <div class="work__media w1"><span class="work__play">▶</span></div>
+      <div class="work__meta"><h3>Aurora Sneakers</h3><p>CGI-реклама · Blender · Redshift</p></div>
+    </article>
+    <article class="work work--wide" data-cursor>
+      <div class="work__media w2"><span class="work__play">▶</span></div>
+      <div class="work__meta"><h3>Orbit Bank Identity</h3><p>Бренд-ролик · C4D · After Effects</p></div>
+    </article>
+    <article class="work" data-cursor>
+      <div class="work__media w3"><span class="work__play">▶</span></div>
+      <div class="work__meta"><h3>Pulse Festival</h3><p>Динамический логотип · Houdini</p></div>
+    </article>
+    <article class="work" data-cursor>
+      <div class="work__media w4"><span class="work__play">▶</span></div>
+      <div class="work__meta"><h3>Terraform WebGL</h3><p>Интерактивный сайт · Three.js</p></div>
+    </article>
+    <article class="work work--wide" data-cursor>
+      <div class="work__media w5"><span class="work__play">▶</span></div>
+      <div class="work__meta"><h3>Neon District Game Cinematic</h3><p>Realtime-трейлер · Unreal Engine 5</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- SERVICES (стек-карточки) -->
+<section class="section" id="services">
+  <div class="section__head">
+    <span class="kicker">02 / УСЛУГИ</span>
+    <h2 class="section__title split">Что мы умеем</h2>
+  </div>
+  <div class="cards" id="cards">
+    <div class="card" data-tilt>
+      <div class="card__shine"></div>
+      <span class="card__icon">◈</span>
+      <h3>3D-моделинг и скульптинг</h3>
+      <p>Hard-surface, органика, скан-реплика. Топология под анимацию и realtime.</p>
+      <ul><li>Blender</li><li>ZBrush</li><li>Substance Painter</li></ul>
+    </div>
+    <div class="card" data-tilt>
+      <div class="card__shine"></div>
+      <span class="card__icon">✦</span>
+      <h3>Моушн-дизайн</h3>
+      <p>Логотипы, ролики, UI-анимация, титры. Ритм, типографика, характер.</p>
+      <ul><li>After Effects</li><li>Cinema 4D</li><li>Framerate</li></ul>
+    </div>
+    <div class="card" data-tilt>
+      <div class="card__shine"></div>
+      <span class="card__icon">❋</span>
+      <h3>Симуляции и VFX</h3>
+      <p>Огонь, жидкость, разрушения, cloth. Процедурные системы любой сложности.</p>
+      <ul><li>Houdini</li><li>Nuke</li><li>EmberGen</li></ul>
+    </div>
+    <div class="card" data-tilt>
+      <div class="card__shine"></div>
+      <span class="card__icon">◎</span>
+      <h3>WebGL / 3D на сайте</h3>
+      <p>Интерактивные сцены прямо в браузере. Конфигураторы, портфолио, иммерсивные лендинги.</p>
+      <ul><li>Three.js</li><li>GSAP</li><li>GLSL</li></ul>
+    </div>
+    <div class="card" data-tilt>
+      <div class="card__shine"></div>
+      <span class="card__icon">▲</span>
+      <h3>Рендер и свет</h3>
+      <p>Фотореализм и стилизация. Шейдинг, освещение, постобработка, апскейл.</p>
+      <ul><li>Redshift</li><li>Karma</li><li>DaVinci Resolve</li></ul>
+    </div>
+    <div class="card" data-tilt>
+      <div class="card__shine"></div>
+      <span class="card__icon">✂</span>
+      <h3>Монтаж и звук</h3>
+      <p>Сборка, цветокоррекция, саунд-дизайн, мастеринг под площадки.</p>
+      <ul><li>Premiere Pro</li><li>Resolve</li><li>Pro Tools</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section class="section" id="pipeline">
+  <div class="section__head">
+    <span class="kicker">03 / ПРОЦЕСС</span>
+    <h2 class="section__title split">Пайплайн производства</h2>
+  </div>
+  <ol class="pipeline">
+    <li class="pipe"><b>01</b><div><h3>Бриф и референсы</h3><p>Погружаемся в продукт, собираем мудборд, фиксируем TDR.</p></div></li>
+    <li class="pipe"><b>02</b><div><h3>Сториборд и аниматик</h3><p>Рисуем кадры, собираем черновую временну́ю линию со звуком.</p></div></li>
+    <li class="pipe"><b>03</b><div><h3>Продакшн</h3><p>Моделинг → UV → текстуры → риг → анимация → симуляции.</p></div></li>
+    <li class="pipe"><b>04</b><div><h3>Рендер и композ</h3><p>Ферма, проходы AOV, сборка в Nuke, цвет и зерно.</p></div></li>
+    <li class="pipe"><b>05</b><div><h3>Доставка</h3><p>Мастера под все форматы: от кинотеатра до Stories.</p></div></li>
+  </ol>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section__head">
+    <span class="kicker">04 / ТАРИФЫ</span>
+    <h2 class="section__title split">Форматы сотрудничества</h2>
+  </div>
+  <div class="plans">
+    <div class="plan">
+      <h3>SPIKE</h3><p class="plan__price">₽120K <i>/ ролик 15 сек</i></p>
+      <ul><li>1 сцена, стилизованный рендер</li><li>2 круга правок</li><li>Срок — 2 недели</li></ul>
+      <a href="#contact" class="btn btn--ghost" data-cursor>Выбрать</a>
+    </div>
+    <div class="plan plan--hot">
+      <span class="plan__badge">ХИТ</span>
+      <h3>NOVA</h3><p class="plan__price">₽450K <i>/ ролик 30–60 сек</i></p>
+      <ul><li>Полный CGI-цикл + саунд-дизайн</li><li>Безлимит правок на сториборде</li><li>Версии под все соцсети</li><li>Срок — 4–6 недель</li></ul>
+      <a href="#contact" class="btn btn--magnetic" data-cursor>Выбрать</a>
+    </div>
+    <div class="plan">
+      <h3>GALAXY</h3><p class="plan__price">от ₽900K <i>/ продакшн под ключ</i></p>
+      <ul><li>Кампания: видео + WebGL-сайт</li><li>Выделенная команда</li><li>NDA и SLA</li></ul>
+      <a href="#contact" class="btn btn--ghost" data-cursor>Обсудить</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section--last" id="contact">
+  <div class="section__head">
+    <span class="kicker">05 / КОНТАКТ</span>
+    <h2 class="section__title split">Запустим ваш проект</h2>
+  </div>
+  <form class="form" id="form" novalidate>
+    <label><span>Имя</span><input name="name" required placeholder="Как к вам обращаться"></label>
+    <label><span>Почта или Telegram</span><input name="email" required placeholder="you@studio.ru"></label>
+    <label class="form__full"><span>О проекте</span><textarea name="msg" rows="4" placeholder="Пару слов о задаче, сроках и бюджете"></textarea></label>
+    <button type="submit" class="btn btn--magnetic form__submit" data-cursor>Отправить бриф ✦</button>
+    <p class="form__ok" id="formOk">Получили! Ответим в течение рабочего дня ✦</p>
+  </form>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer__big" aria-hidden="true">NEBULA*</div>
+  <div class="footer__row">
+    <span>© 2026 Nebula Studio. Rendered with ♥ and photons.</span>
+    <span>hello@nebula.studio · +7 900 000-00-00</span>
+  </div>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script type="module" src="scene.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
